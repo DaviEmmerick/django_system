@@ -1,0 +1,16 @@
+# Ignorar o diretório da máquina virtual
+venv/
+.env
+
+# Ignorar arquivos de banco de dados
+*.sqlite3
+
+# Ignorar arquivos de configuração do IDE
+.vscode/
+.idea/
+
+# Ignorar arquivos de cache e temporários
+*.pyc
+__pycache__/
+.DS_Store
+*.log

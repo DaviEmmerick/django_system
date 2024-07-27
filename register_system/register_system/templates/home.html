@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #4e4b6f, #2a2a4e);
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-radius: 8px;
+        }
+        .btn-primary {
+            background-color: #6c63ff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #5149c7;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Register</h4>
+                        <form action="{% url 'user_create' %}" method="post">
+                          {%csrf_token%}
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                                <label name ="password" for="password">Senha:</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <a href="#" class="btn btn-link">Forgot to password?</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <p style="color: #ffff;">Do you have an account? <a href="#" class="btn btn-link" style="text-decoration:none;">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

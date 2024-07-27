@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #4e4b6f, #2a2a4e);
+        }
+        .table-container {
+            margin-top: 50px;
+        }
+        .table-custom {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .table-custom th, .table-custom td {
+            vertical-align: middle;
+        }
+        .table-custom th {
+            background-color: #6c63ff;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .table-custom td {
+            background-color: #f9f9f9;
+        }
+        .table-custom tr:nth-child(even) td {
+            background-color: #e9e9e9;
+        }
+        .btn-primary {
+            background-color: #6c63ff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #5149c7;
+        }
+        .btn-back {
+            background-color: #6c63ff;
+            border: none;
+            color: #ffff;
+            margin-top: 20px;
+        }
+        .btn-back:hover {
+            background-color: #d4d4d4;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container table-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="table-custom p-3">
+                    <h3 class="mb-4">Users List</h3>
+                    <!-- Exibir mensagens de erro -->
+                    {% if error_message %}
+                        <div class="alert alert-danger">
+                            {{ error_message }}
+                        </div>
+                    {% endif %}
+                    <table class="table table-custom table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Senha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>{{ user.id_users }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.password }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3">Nenhum usuário encontrado.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- Botão de Voltar -->
+                    <a href="{% url 'home' %}" class="btn btn-back">Página Inicial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
